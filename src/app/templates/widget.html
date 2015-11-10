@@ -1,0 +1,37 @@
+<div class="geom_widget">
+	<svg id="svg" viewBox="0 0 200 200"></svg>
+	<div class="footer">
+		<div class="left">
+			<div class="content">
+				<p class="title">min</p>
+				<p class="min_value value"><%= data.min %></p>
+				<% if( data.unit ){ %>
+					<p id="min_datatype" class="datatype">
+						<%= data.unit %>
+					</p>
+				<% } %>
+			</div>
+		</div>
+		<div class="center">
+			<div class="content">
+				<p class="value"><%= data.value %></p>
+				<% if( data.unit ){ %>
+					<p id="center_datatype" class="datatype">
+						<%= data.unit %>
+					</p>
+				<% } %>
+			</div>
+		</div>
+		<div class="right">
+			<div class="content">
+				<p class="title">max</p>
+				<p class="max_value value"><%= data.max %></p>
+				<% if( data.unit ){ %>
+					<p id="max_datatype" class="datatype">
+						<%= data.unit %>
+					</p>
+				<% } %>
+			</div>
+		</div>
+	</div>
+</div>

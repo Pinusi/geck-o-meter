@@ -1,0 +1,19 @@
+{
+	"name": "Geck-o-meter",
+	"version": "1.0.0",
+	"authors": [],
+	"license": "MIT",
+	"ignore": [],
+	"devDependencies": {
+		"normalize.css": "~3.0.3",
+		"jquery": "~2.1.4",
+		"underscore": "~1.8.3",
+		"mocha": "~2.2.5",
+		"chai": "~3.2.0",
+		"sinon": "http://sinonjs.org/releases/sinon-1.15.4.js",
+		"q": "1.0.1",
+		"chai-jq": "~0.0.8",
+		"modernizr": "~2.8.3",
+		"snap.svg": "~0.4.1"
+	}
+}

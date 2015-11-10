@@ -1,0 +1,247 @@
+/** 
+	ANIMATIONS
+	**/
+
+	@mixin transition($args...) {
+		-webkit-transition: $args;
+		-moz-transition: $args;
+		-ms-transition: $args;
+		-o-transition: $args;
+		transition: $args;
+	}
+
+	@mixin transform($transforms) {
+		-moz-transform: $transforms;
+		-o-transform: $transforms;
+		-ms-transform: $transforms;
+		-webkit-transform: $transforms;
+		transform: $transforms;
+	}
+
+/** 
+	RESPONSIVE
+	**/
+
+	@mixin breakpoint($point) {
+
+		@if $point == desktop {
+			@media (min-width: 768px) { @content; }
+		}
+		@else if $point == phone {
+			@media (max-width: 767px)  { @content; }
+		}
+		@else if $point == small-display {
+			@media (max-width: 1280px) { @content; }
+		}
+		@else if $point == medium-display {
+			@media (min-width: 1281px) and (max-width: 1599px) { @content; }
+		}
+		@else if $point == large-display {
+			@media (min-width: 1600px) { @content; }
+		}
+		@else if $point == tablet {
+			@media (min-width: 768px) and (max-width: 940px)  { @content; }
+		}
+		@else if $point == large-phone {
+			@media (min-width: 550px) and (max-width: 767px)  { @content; }
+		}
+		@else if $point == med-phone {
+			@media (min-width: 400px) and (max-width: 549px)  { @content; }
+		}
+		@else if $point == med-or-smaller-phone {
+			@media (max-width: 549px)  { @content; }
+		}
+		@else if $point == small-phone {
+			@media (max-width: 399px)  { @content; }
+		}
+		@else if $point == tablet-or-smaller {
+			@media (max-width: 940px) { @content; } 
+		}
+		@else if $point == shallow-height {
+			@media (max-height: 800px) { @content; }
+		}
+		@else {
+			@media (max-width: $point + px) { @content; }
+		}
+	}
+
+	@mixin box-sizing($box-model) {
+  -webkit-box-sizing: $box-model; // Safari <= 5
+  -moz-box-sizing: $box-model; // Firefox <= 19
+  box-sizing: $box-model;
+}
+
+@function getNonRetinaSize($value) {
+	@return $value / 2;
+}
+
+@mixin flex-padding($top:0, $right:0, $bottom:0, $left:0) {
+	padding: $top+px $right+px $bottom+px $left+px;
+	padding: $top/$rem+rem $right/$rem+rem $bottom/$rem+rem $left/$rem+rem;
+}
+
+@mixin flex-height($height) {
+	height: $height + px;
+	height: $height/$rem + rem;
+}
+
+@mixin flex-min-height($height) {
+	min-height: $height + px;
+	min-height: $height/$rem + rem;
+}
+
+@mixin flex-width($width) {
+	width: $width + px;
+	width: $width/$rem + rem;
+}
+
+@mixin flex-min-width($width) {
+	min-width: $width + px;
+	min-width: $width/$rem + rem;
+}
+
+@mixin flex-top($amount) {
+	top: $amount + px;
+	top: $amount/$rem + rem;
+}
+
+@mixin flex-right($amount) {
+	right: $amount + px;
+	right: $amount/$rem + rem;
+}
+
+@mixin flex-bottom($amount) {
+	bottom: $amount + px;
+	bottom: $amount/$rem + rem;
+}
+
+@mixin flex-left($amount) {
+	left: $amount + px;
+	left: $amount/$rem + rem;
+}
+
+@mixin flex-margin($top:0, $right:0, $bottom:0, $left:0) {
+	margin: $top+px $right+px $bottom+px $left+px;
+	margin: $top/$rem+rem $right/$rem+rem $bottom/$rem+rem $left/$rem+rem;
+}
+
+@function rem($amount) {
+	@return $amount/$rem + rem;
+}
+
+@mixin before() {
+	&:before {
+		@content;
+	}
+}
+
+@mixin after() {
+	&:after {
+		@content;
+	}
+}
+
+@mixin border-box() {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box; 
+}
+
+@mixin flex-box-shadow($top, $left, $blur, $color, $inset: false) {
+	@if $inset {
+		-webkit-box-shadow:inset $top $left $blur $color;
+		-moz-box-shadow:inset $top $left $blur $color;
+		box-shadow:inset $top $left $blur $color;
+		-webkit-box-shadow:inset $top/$rem+rem $left/$rem+rem $blur $color;
+		-moz-box-shadow:inset $top/$rem+rem $left/$rem+rem $blur $color;
+		box-shadow:inset $top/$rem+rem $left/$rem+rem $blur $color;
+	} 
+	@else {
+		-webkit-box-shadow: $top $left $blur $color;
+		-moz-box-shadow: $top $left $blur $color;
+		box-shadow: $top $left $blur $color;
+		-webkit-box-shadow:$top/$rem+rem $left/$rem+rem $blur $color;
+		-moz-box-shadow:$top/$rem+rem $left/$rem+rem $blur $color;
+		box-shadow:$top/$rem+rem $left/$rem+rem $blur $color;
+	}
+}
+
+@mixin border-radius ($radius: 5) {
+	-webkit-border-radius: $radius + px;
+	-moz-border-radius:    $radius + px;
+	border-radius:         $radius + px;
+}
+
+/** 
+	TYPOGRAPHY
+	**/
+
+	@mixin font-dimensions($font-size, $line-height) {
+		@include font-size($font-size);
+		@include line-height($line-height);
+	}
+
+	@mixin font-size($value) {
+		font-size: $value + px;
+		font-size: ($value / $rem) + rem;
+	}
+
+	@mixin line-height($value) {
+		line-height: $value + px;
+		line-height: $value / $rem + rem;
+	}
+
+	@mixin no-tap-highlight() {
+		-ms-touch-action: none;
+		-webkit-tap-highlight-color: rgba(0,0,0,0);
+	}
+
+	@mixin reset-metrics() {
+		margin:0;
+		padding:0;
+	}
+
+	@mixin reset-list() {
+		@include reset-metrics();
+		list-style:none;
+	}
+
+	@mixin inline-block() {
+		display:inline-block;
+		.lt-ie8 & {
+			display:inline;
+		}
+	}
+
+	@mixin default-link() {
+		&:link,
+		&:visited {
+			@content;
+		}
+	}
+
+	@mixin focus-link() {
+		&:hover,
+		&:focus,
+		&:active {
+			@content;
+		}
+	}
+
+	@mixin active-link() {
+		&.active {
+			@content;
+		}
+	}
+
+	@mixin first-element() {
+		&:first-child {
+			@content; 
+		}
+	}
+
+	@mixin last-element() {
+		&:last-child {
+			@content; 
+		}
+	}

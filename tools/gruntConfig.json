@@ -1,0 +1,30 @@
+{
+	"js":{
+		"app":[
+			".tmp/templates.js",
+			"../src/app/js/Widget.js",
+			"../src/app/js/Main.js"
+		],
+		"vendor":[
+			"../src/vendor/modernizr/modernizr.js",
+			"../src/vendor/jquery/dist/jquery.min.js",
+			"../src/vendor/underscore/underscore-min.js",
+			"../src/vendor/q/q.js",
+			"../src/vendor/snap.svg/dist/snap.svg-min.js"
+		],
+		"test":[
+			"../src/vendor/sinon/index.js",
+			"../src/vendor/chai/chai.js",
+			"../src/vendor/mocha/mocha.js",
+			"../src/vendor/chai-jq/chai-jq.js"
+		]
+	},
+	"css":{
+		"vendor":[
+			"../src/vendor/normalize.css/normalize.css"
+		],
+		"test":[
+			"../src/vendor/mocha/mocha.css"
+		]
+	}
+}

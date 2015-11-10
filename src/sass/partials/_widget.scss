@@ -1,0 +1,128 @@
+.geom_widget{
+	@include flex-width( getNonRetinaSize(400) );
+	@include flex-height( getNonRetinaSize(400) );
+	position: relative;
+	overflow: hidden;
+	@include flex-box-shadow(3, 3, 15px, $grey);
+	border: solid 1px $dark-grey;
+
+
+	#svg{
+		@include flex-width( getNonRetinaSize(400) );
+		@include flex-height( getNonRetinaSize(400) );
+		position: relative;
+		z-index: 10;
+	}
+
+
+	.footer{
+		position: absolute;
+		bottom: 0px;
+		width: 100%;
+	}
+
+	.left, .right{
+		position: absolute;
+		bottom: 0px;
+		background-color: $grey;
+		@include flex-height( getNonRetinaSize(138) );
+		@include flex-width( getNonRetinaSize(105) );
+
+		&:after{
+			content: "";
+			@include flex-height( getNonRetinaSize(138) );
+			@include flex-width( getNonRetinaSize(37) );
+			display: block;
+			position: absolute;
+		}
+
+		.content{
+			position: absolute;
+			top: 50%;
+			@include transform(translate3d(0px, -50%, 0px));
+			width: 100%;
+			text-transform: uppercase;
+			font-family: 'Cantarell', sans-serif;
+			color: $blue;
+
+			.title, .value, .datatype{
+				text-align: center;
+				margin: 0px;
+			}
+
+			.title{
+				@include font-dimensions(14, 16);
+				font-family: 'Fjalla One', sans-serif;
+				letter-spacing: 0.1rem;
+			}
+
+			.value{
+				font-family: 'Fjalla One', sans-serif;
+				@include font-dimensions(20, 23);
+				@include transition( linear 2s all);
+			}
+
+			.datatype{
+				font-weight: 400;
+				@include font-dimensions(12, 14);
+				letter-spacing: -0.1rem;
+			}
+		}
+	}
+
+	.left{
+    	left: 0px;
+		&:after{
+			background: url('../assets/images/left.png');
+			background-size: cover;
+			@include flex-left( getNonRetinaSize(105) );
+		}
+	}
+
+	.right{
+		right: 0px;
+		&:after{
+			background: url('../assets/images/right.png');
+			@include flex-right( getNonRetinaSize(105) );
+			background-size: cover;
+		}
+	}
+
+	.center{
+		background-color: $blue;
+		@include flex-height( getNonRetinaSize(178) );
+		@include flex-width( getNonRetinaSize(178) );
+		position: absolute;
+    	left: 50%;
+    	@include flex-bottom(-((getNonRetinaSize(178) - getNonRetinaSize(138))/2) + 2); //last is small fix
+    	@include border-radius(getNonRetinaSize(138));
+    	@include transform(translate3d(-50%, 0px, 0px));
+    	@include transition( linear 2s all);
+
+		.content{
+			text-transform: uppercase;
+			font-family: 'Cantarell', sans-serif;
+			position: absolute;
+			top: 50%;
+			width: 100%;
+			@include transform(translate3d(0px, -40%, 0px));
+
+			.value, .datatype{
+				color: $white;
+				text-align: center;
+				margin: 0px;
+			}
+
+	    	.value{
+				font-family: 'Fjalla One', sans-serif;
+				@include font-dimensions(36, 36);
+			}
+
+			.datatype{
+				@include font-dimensions(18, 19);
+				letter-spacing: -0.1rem;
+			}
+		}
+	}
+}
+

@@ -1,0 +1,37 @@
+<!doctype html>
+
+<html>
+
+<head>
+	<title>GEOM - Tests</title>
+    <link rel="stylesheet" href="vendor/vendor_test.min.css" />
+</head>
+
+<body>
+
+    <div id="mocha"></div>
+    <div style="display: none;">
+        <svg id="tick"></svg>
+        <svg id="svg"></svg>
+    </div>
+
+    <!-- Vendor Libraries -->
+    <script src="vendor/vendor_test.min.js"></script> 
+    <script src="../dist/js/vendor.min.js"></script>
+
+    <!-- Setup -->
+    <script>mocha.setup('bdd')</script>
+    <script>expect = chai.expect</script>
+
+    <!-- SUT + Tests -->
+	<script src="../dist/js/main.min.js"></script>
+	<script src="widget.tests.js"></script>
+
+    <!-- Init -->
+	<script>
+		mocha.run();
+	</script>
+
+</body>
+
+</html>
